@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfyui-wan2-latent-saver"
+version = "0.1.0"
+description = "Custom ComfyUI nodes for saving and loading WAN 2.2 latents by explicit file path."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.0.0", "numpy"]
+
+[project.urls]
+"Homepage" = "https://github.com/Comfy-Org/ComfyUI_wan2.2_latentSaver"
+
+[tool.setuptools.packages.find]
+where = ["src"]
