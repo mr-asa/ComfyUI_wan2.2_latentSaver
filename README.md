@@ -57,9 +57,6 @@ Examples:
 - Save node: `path = my_latent` → saved to `output/my_latent.pt`
 - Save node: `path = folder/sub/latent1` → saved to `output/folder/sub/latent1.pt`
 - Load node: `path = my_latent` → looks for `output/my_latent.pt`, then `.pth`, etc.
- - If a relative path or just a filename is provided (for example `my_latent` or `folder/my_latent`), the node will save to the `output/` folder inside the ComfyUI server working directory (e.g. `output/my_latent.pt`).
- - If no file extension is specified when saving, the node will append `.pt` by default.
- - When loading and no extension is given, the loader will search for files with supported extensions in this order: `.pt`, `.pth`, `.latent`, `.npz`, `.npy` and pick the first match.
 
 ---
 
@@ -92,7 +89,8 @@ Examples:
 ### Загрузка
 
 - Вход `path` — путь к файлу латента.
-- Выход — объект `LATENT`, который можно передать дальше по графу.
+- Необязательный параметр `wrap_for_wan_video` — обернуть загруженный латент в dict, совместимый с WanVideoSampler.
+- Выход — объект `LATENT` или dict, совместимый с WanVideoSampler, который можно передать дальше по графу.
 
 ## Структура
 
@@ -107,12 +105,12 @@ Examples:
 
 ### Относительные пути и формат по умолчанию
 
-- Если указан относительный путь или только имя файла (например `my_latent` или `folder/my_latent`), нод сохранит файл в папку `outputs/` в рабочей директории ComfyUI (например `outputs/my_latent.pt`).
+- Если указан относительный путь или только имя файла (например `my_latent` или `folder/my_latent`), нод сохранит файл в папку `output/` в рабочей директории ComfyUI (например `output/my_latent.pt`).
 - Если при сохранении не указано расширение, нод автоматически добавит `.pt`.
 - При загрузке, если расширение не указано, загрузчик будет искать файлы с расширениями в порядке: `.pt`, `.pth`, `.latent`, `.npz`, `.npy` и загрузит первый найденный.
 
 Примеры:
 
-- Save node: `path = my_latent` → сохранится как `outputs/my_latent.pt`
-- Save node: `path = folder/sub/latent1` → сохранится как `outputs/folder/sub/latent1.pt`
-- Load node: `path = my_latent` → будет проверять `outputs/my_latent.pt`, затем `.pth` и т.д.
+- Save node: `path = my_latent` → сохранится как `output/my_latent.pt`
+- Save node: `path = folder/sub/latent1` → сохранится как `output/folder/sub/latent1.pt`
+- Load node: `path = my_latent` → будет проверять `output/my_latent.pt`, затем `.pth` и т.д.
