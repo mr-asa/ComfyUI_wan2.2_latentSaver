@@ -14,4 +14,4 @@ dependencies = ["torch>=2.0.0", "numpy"]
 "Homepage" = "https://github.com/Comfy-Org/ComfyUI_wan2.2_latentSaver"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
